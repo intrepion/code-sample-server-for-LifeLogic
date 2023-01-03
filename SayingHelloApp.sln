@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayingHelloLibrary", "Sayin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayingHelloWebApi", "SayingHelloWebApi\SayingHelloWebApi.csproj", "{E397A051-C914-4697-AEFC-CA6D57CA009A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SayingHelloTests", "SayingHelloTests\SayingHelloTests.csproj", "{3487D39B-0852-4B37-B0CD-038DD387B024}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{E397A051-C914-4697-AEFC-CA6D57CA009A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E397A051-C914-4697-AEFC-CA6D57CA009A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E397A051-C914-4697-AEFC-CA6D57CA009A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3487D39B-0852-4B37-B0CD-038DD387B024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3487D39B-0852-4B37-B0CD-038DD387B024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3487D39B-0852-4B37-B0CD-038DD387B024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3487D39B-0852-4B37-B0CD-038DD387B024}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
