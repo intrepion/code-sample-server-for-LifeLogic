@@ -33,13 +33,15 @@ builder.Services
     })
     .AddJwtBearer(cfg =>
     {
+        var jwtIssuer = builder.Configuration["JwtIssuer"] ?? Environment.GetEnvironmentVariable("JWT_ISSUER");
+        var jwtKey = builder.Configuration["JwtKey"] ?? Environment.GetEnvironmentVariable("JWT_KEY");
         cfg.RequireHttpsMetadata = false;
         cfg.SaveToken = true;
         cfg.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidIssuer = builder.Configuration["JwtIssuer"],
-            ValidAudience = builder.Configuration["JwtIssuer"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JwtKey"])),
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtIssuer,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey)),
             ClockSkew = TimeSpan.Zero
         };
     });

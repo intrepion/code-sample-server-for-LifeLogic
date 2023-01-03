@@ -41,13 +41,16 @@ public class UserRepository : IUserRepository, IDisposable
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtKey"]));
+        var jwtIssuer = _configuration["JwtIssuer"] ?? Environment.GetEnvironmentVariable("JWT_ISSUER");
+        var jwtKey = _configuration["JwtKey"] ?? Environment.GetEnvironmentVariable("JWT_KEY");
+
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["JwtExpireDays"]));
 
         var token = new JwtSecurityToken(
-            _configuration["JwtIssuer"],
-            _configuration["JwtIssuer"],
+            jwtIssuer,
+            jwtIssuer,
             claims,
             expires: expires,
             signingCredentials: creds
